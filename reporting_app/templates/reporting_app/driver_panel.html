@@ -1,0 +1,49 @@
+{% extends "reporting_app/base.html" %}
+
+
+{% block info %}
+
+<h5 class="card-title"> Driver Status:</h5>
+{% if is_active %}
+<h3>You are now taking part in action on route: {{route}}.</h3>
+{% else %}
+<h3>You are now not taking part in any action.</h3>
+{% endif %}
+
+
+{% endblock info%}
+
+
+{% block content %}
+
+
+<h5 class="card-title">Driver
+    Panel </h5>
+{% if is_active %}
+<form action="{% url 'driver_action_stop' %}" method="post" class="form-creation">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">Press button to stop action.</label>
+    </div>
+    <button type="submit" class="btn btn-primary">Stop action</button>
+</form>
+
+
+{% else %}
+<form action="{% url 'driver_action_start' %}" method="post" class="form-creation">
+    {% csrf_token %}
+    <div class="form-group">
+        <label for="exampleFormControlSelect1">select the road where you will perform the
+            service</label>
+        <select class="form-control" id="exampleFormControlSelect1" name='road_list'>
+            {% for road in road_list %}
+            <option>{{road}}</option>
+            {% endfor %}
+        </select>
+    </div>
+    <button type="submit" class="btn btn-primary">Start action</button>
+</form>
+{% endif %}
+
+
+{% endblock content %}
