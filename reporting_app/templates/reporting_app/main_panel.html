@@ -1,0 +1,41 @@
+{% extends "reporting_app/base.html" %}
+
+
+{% block info %}
+
+<h5 class="card-title">Main information about drivers bellow </h5>
+
+
+{% endblock info%}
+
+{% block content %}
+
+<table class="table">
+  <thead class="thead-light">
+    <tr>
+      <th scope="col"></th>
+      <th scope="col">driver</th>
+      <th scope="col">Status</th>
+      <th scope="col">Route</th>
+    </tr>
+  </thead>
+  <tbody>
+{%for action,i in drivers_stats %}
+
+    <tr>
+      <th scope="row">{{i}}</th>
+      <td>{{action.driver}}</td>
+        {% if action.is_active %}
+            <td><div class="text-danger">Action is activated<div></td>
+            <td>{{action.route}}</td>
+        {% else %}
+            <td>Action is not activated</td>
+            <td></td>
+        {% endif %}
+    </tr>
+{%endfor%}
+  </tbody>
+</table>
+
+{% endblock content %}
+
