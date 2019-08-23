@@ -12,8 +12,8 @@ class Report():
     def send_report():
 
         drivers_stats = [(Action.objects.filter(driver=x.user).last(),
-                      i) for x, i in zip(Profile.objects.filter(is_driver=True),
-                            range(1,1+len(Profile.objects.filter(is_driver=True))))]
+                      i) for x, i in zip(Profile.objects.filter(supervisor_account=False),
+                            range(1,1+len(Profile.objects.filter(supervisor_account=False))))]
 
         wb = openpyxl.load_workbook('Pattern.xlsx')
 
@@ -48,7 +48,7 @@ class Report():
         mail = smtplib.SMTP('poczta.interia.pl',587)
         mail.ehlo()
         mail.starttls()
-        mail.login('fatum.michal@interia.pl',"##")
-        mail.sendmail("fatum.michal@interia.pl" , "michal.kanarek@gmail.com",text)
+        mail.login('fatum.michal@interia.pl', '#####')
+        mail.sendmail("fatum.michal@interia.pl", "michal.kanarek@gmail.com",text)
         mail.close()
         return "Report Send !"
