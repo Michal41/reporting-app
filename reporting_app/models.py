@@ -16,7 +16,7 @@ class Action(models.Model):
 
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
-    supervisor_account = models.BooleanField(default=False)
+    is_driver = models.BooleanField(default=True)
 
 
 @receiver(post_save, sender=User)

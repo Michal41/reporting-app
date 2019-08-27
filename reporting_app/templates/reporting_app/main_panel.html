@@ -3,12 +3,6 @@
 
 {% block info %}
 
-    <form method="GET" action="{% url 'send_report' %}">
-        {% csrf_token %}
-        <h2 class="card-title">Push button to manually send report &nbsp;
-            <button type="submit" class="btn btn-outline-primary btn-lg">Send</button>
-        </h2>
-    </form>
 
 <h5 class="card-title">Main information about drivers bellow </h5>
 
