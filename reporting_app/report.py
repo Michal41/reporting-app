@@ -48,7 +48,7 @@ class Report():
         mail = smtplib.SMTP('poczta.interia.pl', 587)
         mail.ehlo()
         mail.starttls()
-        mail.login('fatum.michal@interia.pl', '######')
+        mail.login('fatum.michal@interia.pl', '$$$$$$$$$$$')
         mail.sendmail("fatum.michal@interia.pl", "michal.kanarek@gmail.com",text)
         mail.close()
         return "Report Send !"

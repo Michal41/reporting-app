@@ -12,5 +12,17 @@
 
 {% endblock info%}
 
-
+{% block content %}
+    <h3>
+        Below information that the report file contains.</p>
+    </h3>
+    <h4>
+        Temperature: {{temperature}}.</p>
+        {% if active_actions %}
+            {{active_actions}} drivers naw taking part in the action.</p>
+        {% else %}
+            Drivers are not taking part in any action now.</p>
+        {% endif %}
+    </h4>
+{% endblock content %}
 

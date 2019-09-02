@@ -36,8 +36,8 @@
         <label for="exampleFormControlSelect1">select the road where you will perform the
             service</label>
         <select class="form-control" id="exampleFormControlSelect1" name='road_list'>
-            {% for road in road_list %}
-            <option>{{road}}</option>
+            {% for route in route_list %}
+            <option>{{route.route_number}}</option>
             {% endfor %}
         </select>
     </div>

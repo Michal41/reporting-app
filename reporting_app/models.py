@@ -14,6 +14,11 @@ class Action(models.Model):
     def __str__(self):
         return self.driver.username +" route " + self.route
 
+
+class Routes(models.Model):
+    route_number = models.CharField(max_length=20)
+
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     is_driver = models.BooleanField(default=True)
