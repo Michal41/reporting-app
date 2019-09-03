@@ -11,7 +11,7 @@ So this application automatically sends reports that include the current tempera
 ## Technologies
 * Python 3.7
 * Django 2.2.5
-
+* Bootstrap 4
 
 ## Status
 Project is: in progress
